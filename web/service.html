@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="service-header">
+        <h1>Logo</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#" class="active">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="card">
+          <h3>Upload Your X-ray Image</h3>
+          <div class="drop_box">
+            <div id="file-head">
+              <h4>Select File here</h4>
+            </div>
+            <p>Files Supported: JPG ,PNG ,PIC . . .</p>
+            <input type="file" hidden accept=".bmp, .dib, .jpeg, .jpg, .jpe, .jp2, .png, .webp, .avif, .pbm, .pgm, .ppm, .pxm, .pnm, .pfm, .sr, .ras, .tiff, .tif, .exr, .hdr, .pic" id="fileID" style="display:none;">
+            <button class="btn-file">Choose File</button>
+          </div>
+      
+        </div>
+      </div>
+</body>
+<script>
+const dropArea = document.querySelector(".drop_box"),
+button = dropArea.querySelector("button"),
+dragText = dropArea.querySelector("#file-head"),
+input = dropArea.querySelector("input");
+let file;
+var filename;
+
+button.onclick = () => {
+  input.click();
+};
+
+input.addEventListener("change", function (e) {
+  var fileName = e.target.files[0].name;
+  let filedata = `
+    <form action="" method="post">
+    <div class="form">
+    <h4>${fileName}</h4>
+    <input type="email" placeholder="Enter email upload file">
+    <button class="btn-file">Upload</button>
+    </div>
+    </form>`;
+  dropArea.innerHTML = filedata;
+});
+
+</script>
+</html>
