@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header id="service-header">
+        <h1>Pneum<span class="target">AI</span></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#" class="active">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+    <form method="post" action="/predict" enctype="multipart/form-data">
+    <div class="container">
+        <div class="card" style="height: 320px;">
+          <h3>Upload Your X-ray Image</h3>
+          <div class="drop_box">
+            
+            <div id="file-head">
+              <h4>Select File here</h4>
+            </div>
+            <p>Files Supported: JPG ,PNG ,PIC . . .</p>
+            <input type="file" name="xray_file" hidden accept=".bmp, .dib, .jpeg, .jpg, .jpe, .jp2, .png, .webp, .avif, .pbm, .pgm, .ppm, .pxm, .pnm, .pfm, .sr, .ras, .tiff, .tif, .exr, .hdr, .pic" id="fileID" style="display:none;">
+            <button class="btn-file" id="button-file" type="button">Choose File</button>
+            <button id="upload-btn" class="btn-file" type="submit">Upload</button>
+          </div>
+      
+        </div>
+      </div>
+    </form>
+</body>
+<script>
+const dropArea = document.querySelector(".drop_box"),
+button = dropArea.querySelector("#button-file"),
+input = dropArea.querySelector("input");
+
+button.onclick = (e) => {
+  input.click();
+
+};
+input.addEventListener('change',(e)=>{
+  const filename = e.target.files[0].name;
+  document.getElementById('file-head').innerHTML = `<h4>${filename}</h4>`;
+});
+
+
+
+
+
+</script>
+</html>

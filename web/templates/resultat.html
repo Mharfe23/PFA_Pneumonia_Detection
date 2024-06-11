@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header id="service-header">
+      <h1>Pneum<span class="target">AI</span></h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#">About</a>
+            <a href="#" class="active">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+          <h3>Votre resultat: {{resultat}}  de Pneumonia</h3>
+          <i>Nos algorithmes atteignent une justesse de 83% dans leurs prédictions. Pour une validation définitive, nous vous recommandons de consulter un de nos docteurs.</i>
+          <div class="drop_box">
+            
+            <div id="resultat-head">
+              <h4>Docteurs disponibles :</h4>
+            </div>
+            <div class="container-doc">
+              <ul>
+                {% for doc in Docteurs %}
+                <li>
+                  <div class="card doc_card">
+                    
+                    <h6 class="doc_card_elemnt">{{doc['nom']}}</h6>
+                    <p class="doc_card_elemnt" id="l1">{{doc['ville']}}</p>
+                    <p class="doc_card_elemnt" id="l2">{{doc['numero']}}</p>
+                    <a href="https://www.google.com/index.html" class="doc_card_elemnt"><i class='icon'></i></a>
+                  </div>
+                </li>
+                {% endfor %}
+                
+              </ul>
+            </div>
+            
+            
+            
+           
+          </div>
+      
+        </div>
+      </div>
+    </form>
+</body>
+
+</html>
